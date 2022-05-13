@@ -1,0 +1,21 @@
+<h1>Hello <%= name %></h1>
+
+<a href="http://localhost:3000/logout">
+    <button>LogOut</button>
+</a>
+
+<a href="http://localhost:3000/home/<%= id %>">
+	<button>Absen</button>
+</a>
+
+<% if(role == "admin"){ %>
+	
+<a href="http://localhost:3000/admin">
+	<button>Admin</button>
+</a>
+											
+<% } %>
+
+<a href="http://localhost:3000/profile">
+	<button>Profile</button>
+</a>

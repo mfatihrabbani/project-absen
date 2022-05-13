@@ -1,0 +1,18 @@
+<h1>Hello <%= username %></h1>
+
+<% if(profile.length == 0) { %>
+<h1>Please update your profile</h1>
+<a href="http://localhost:3000/profile/update">
+	<button>Update</button>
+</a>
+<% } else { %>
+<h1>Name : <%= profile[0].name %></h1>
+<h1>Kelas : <%= profile[0].class %></h1>
+<h1>Jurusan : <%= profile[0].major %></h1>
+
+<a href="http://localhost:3000/profile/update">
+	<button>Update Profile</button>
+</a>
+
+<% } %>
+

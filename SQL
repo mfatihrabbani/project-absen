@@ -1,0 +1,55 @@
+CREATE TABLE dataUser(
+	id int(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	name varchar(50) NOT NULL,
+	email varchar(50) NOT NULL,
+	password varchar(255) NOT NULL,
+	role varchar(20) NOT NULL
+) engine = InnoDB;
+
+CREATE TABLE dataAbsen(
+	id int NOT NULL AUTO_INCREMENT,
+	id_user int(6) NOT NULL,
+	status varchar(50) NULL,
+	dateAbsen varchar(20) NOT NULL,
+	PRIMARY KEY (id),
+	CONSTRAINT fk_dataAbsen_dataUser
+	FOREIGN KEY (id_user) REFERENCES datauser (id)
+) ENGINE = InnoDB;
+
+ALTER TABLE dataAbsen
+ADD COLUMN dateAbsen varchar(100);
+
+ALTER TABLE dataAbsen
+DROP COLUMN dateAbsen varchar(100);
+
+DELETE FROM dataAbsen
+WHERE id_user = 1;
+
+DELETE FROM datauser
+WHERE name = 'admin';
+
+UPDATE datauser
+SET role = "admin"
+WHERE name = "admin";
+
+CREATE TABLE profileUser(
+	id int NOT NULL AUTO_INCREMENT,
+	id_user int(6) NOT NULL,
+	name varchar(255) NOT NULL,
+	class varchar(10) NOT NULL,
+	major varchar(30) NOT NULL,
+	PRIMARY KEY (id),
+	CONSTRAINT fk_profileUser_dataUser
+	FOREIGN KEY (id_user) REFERENCES datauser (id)
+) ENGINE = InnoDB;
+
+ALTER TABLE datauser
+RENAME COLUMN name 
+TO username;
+
+ALTER TABLE datauser
+DROP COLUMN statususer;
+
+ALTER TABLE datauser
+ADD COLUMN statususer varchar(20) NOT NULL DEFAULT 'Aktif';
+

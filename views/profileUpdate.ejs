@@ -1,0 +1,14 @@
+<h1>Hello <%= name %></h1>
+
+<form action="/profile/update" method="POST">
+    <label for="name" >Name</label>
+    <input type="text" id="name" name = "name" required>
+
+    <label for="grade" >Kelas</label>
+    <input type="text" id="grade" name = "grade" required>
+
+    <label for="major" >Jurusan</label>
+    <input type="text" id="major" name = "major" required>
+
+    <button type="submit">Update</button>
+</form>
